@@ -66,7 +66,7 @@ public class EditTextFieldView extends FieldView<CharSequence> {
     @Override
     public synchronized void setFieldValue(CharSequence value) {
         mValueWasChangedFromIME = false;
-        ((EditText) findViewById(R.id.fieldValue)).setTextKeepState(value);
+        ((EditText) findViewById(R.id.fieldValue)).setTextKeepState(value == null ? "" : value);
         mValueWasChangedFromIME = true;
     }
 
