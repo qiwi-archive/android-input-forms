@@ -1,1 +1,1 @@
-include ':android-input-forms'
+include ':library'
