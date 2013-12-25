@@ -84,7 +84,9 @@ public class FieldSetAdapter implements Adapter {
 
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
-        return getItem(i).getView(viewGroup.getContext(), (FieldView) view);
+        View result = getItem(i).getView(viewGroup.getContext(), (FieldView) view);
+        result.setId(i);
+        return result;
     }
 
     @Override

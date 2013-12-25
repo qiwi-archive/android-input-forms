@@ -12,25 +12,26 @@ import ru.mw.android.inputforms.R;
 /**
  * Created by nixan on 23.12.13.
  */
-public class TextOnlyFieldView extends FieldView {
+public class TextFieldView extends FieldView<CharSequence> {
 
-    public TextOnlyFieldView(Context context, AttributeSet attrs) {
+    public TextFieldView(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
 
-    public TextOnlyFieldView(Context context) {
+    public TextFieldView(Context context) {
         super(context);
     }
 
     @Override
     public View getViewContent(Context context) {
         LayoutInflater layoutInflater = LayoutInflater.from(context);
-        View result = layoutInflater.inflate(R.layout.fieldview_text_only, null);
+        View result = layoutInflater.inflate(R.layout.fieldview_text, null);
         return result;
     }
 
     @Override
-    public void setFieldValue(Object value) {
+    public void setFieldValue(CharSequence value) {
         ((TextView) findViewById(R.id.fieldValue)).setText(value.toString());
     }
+
 }

@@ -1,0 +1,14 @@
+<resources>
+    <declare-styleable name="FormView">
+        <attr name="fieldsPadding" format="dimension" />
+        <attr name="fieldsTopPadding" format="dimension" />
+        <attr name="fieldsBottomPadding" format="dimension" />
+        <attr name="fieldsLeftPadding" format="dimension" />
+        <attr name="fieldsRightPadding" format="dimension" />
+        <attr name="fieldsMargin" format="dimension" />
+        <attr name="fieldsTopMargin" format="dimension" />
+        <attr name="fieldsBottomMargin" format="dimension" />
+        <attr name="fieldsLeftMargin" format="dimension" />
+        <attr name="fieldsRightMargin" format="dimension" />
+    </declare-styleable>
+</resources>

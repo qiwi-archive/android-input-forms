@@ -13,6 +13,8 @@ public abstract class Field<T> {
 
     private T mValue;
 
+    private CharSequence mTitle;
+
     private String mIdentifier;
 
     public Field(String identifier) {
@@ -39,6 +41,15 @@ public abstract class Field<T> {
         notifyDataChanged();
     }
 
+    public void setFieldTitle(CharSequence title) {
+        mTitle = title;
+        notifyDataChanged();
+    }
+
+    public CharSequence getFieldTitle() {
+        return mTitle;
+    }
+
     public T getValue() {
         return mValue;
     }
@@ -51,14 +62,27 @@ public abstract class Field<T> {
         return mIdentifier;
     }
 
-    public abstract FieldView updateView(Context context, FieldView view);
+    public abstract FieldView<T> updateView(Context context, FieldView<T> view);
 
-    public abstract FieldView newView(Context context);
+    public FieldView<T> newView(Context context) {
+        try {
+            return getViewClass().getConstructor(Context.class).newInstance(context);
+        } catch (Exception e) {
+            throw new IllegalArgumentException("Cannon create instance of the view class!");
+        }
+    }
 
-    public FieldView getView(Context context, FieldView fieldView) {
+    public abstract Class<? extends FieldView> getViewClass();
+
+    public FieldView<T> getView(Context context, FieldView<T> fieldView) {
         if (fieldView == null) {
             fieldView = newView(context);
         }
+        updateTitle(context, fieldView);
         return updateView(context, fieldView);
+    }
+
+    public void updateTitle(Context context, FieldView<T> fieldView) {
+        fieldView.setFieldTitle(getFieldTitle());
     }
 }

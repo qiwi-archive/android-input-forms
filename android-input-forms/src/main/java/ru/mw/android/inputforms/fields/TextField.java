@@ -4,29 +4,25 @@ import android.content.Context;
 
 import ru.mw.android.inputforms.Field;
 import ru.mw.android.inputforms.FieldView;
-import ru.mw.android.inputforms.fieldviews.TextOnlyFieldView;
+import ru.mw.android.inputforms.fieldviews.TextFieldView;
 
 /**
  * Created by nixan on 23.12.13.
  */
 public class TextField extends Field<CharSequence> {
 
-    public TextField(String identifier) {
-        super(identifier);
-    }
-
-    public TextField() {
-        super();
+    public TextField(String identificator) {
+        super(identificator);
     }
 
     @Override
-    public FieldView updateView(Context context, FieldView view) {
-        view.setFieldValue(getValue());
+    public FieldView<CharSequence> updateView(Context context, FieldView<CharSequence> view) {
+        ((TextFieldView) view).setFieldValue(getValue());
         return view;
     }
 
     @Override
-    public FieldView newView(Context context) {
-        return new TextOnlyFieldView(context);
+    public Class<? extends FieldView> getViewClass() {
+        return TextFieldView.class;
     }
 }
