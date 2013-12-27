@@ -74,6 +74,22 @@ public class EditTextFieldView extends FieldView<CharSequence> {
         return ((EditText) findViewById(R.id.fieldValue)).isInEditMode();
     }
 
+    /**
+     * @see android.widget.EditText#setHint(CharSequence)
+     * @param hint text to be displayed when view has no content
+     */
+    public void setTextHint(CharSequence hint) {
+        ((EditText) findViewById(R.id.fieldValue)).setHint(hint);
+    }
+
+    /**
+     * @see android.widget.EditText#setHint(int)
+     * @param hint text to be displayed when view has no content
+     */
+    public void setTextHint(int hint) {
+        ((EditText) findViewById(R.id.fieldValue)).setHint(hint);
+    }
+
     public void setFieldTitle(CharSequence title) {
         ((TextView) findViewById(R.id.fieldTitle)).setText(title);
     }
