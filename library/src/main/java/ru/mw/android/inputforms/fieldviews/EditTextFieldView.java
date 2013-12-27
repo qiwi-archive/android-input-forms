@@ -74,6 +74,14 @@ public class EditTextFieldView extends FieldView<CharSequence> {
         return ((EditText) findViewById(R.id.fieldValue)).isInEditMode();
     }
 
+    public void setTextHint(CharSequence hint) {
+        ((EditText) findViewById(R.id.fieldValue)).setHint(hint);
+    }
+
+    public void setTextHint(int hint) {
+        ((EditText) findViewById(R.id.fieldValue)).setHint(hint);
+    }
+
     public void setFieldTitle(CharSequence title) {
         ((TextView) findViewById(R.id.fieldTitle)).setText(title);
     }
